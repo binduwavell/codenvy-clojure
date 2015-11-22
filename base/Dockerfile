@@ -1,4 +1,4 @@
-FROM binduwavell/codenvy-alfresco-base:0.3
+FROM binduwavell/codenvy-alfresco-base:0.4
 
 MAINTAINER Bindu Wavell <bindu@ziaconsulting.com>
 

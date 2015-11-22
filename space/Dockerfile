@@ -1,4 +1,4 @@
-FROM binduwavell/codenvy-clojure-base:0.1
+FROM binduwavell/codenvy-clojure-base:0.2
 
 MAINTAINER Bindu Wavell <bindu@ziaconsulting.com>
 
@@ -9,8 +9,6 @@ MAINTAINER Bindu Wavell <bindu@ziaconsulting.com>
 # full or basic mode.
 ADD _spacemacs /home/user/.spacemacs
 
-ADD _tmux.conf /home/user/.tmux.conf
-
 # Makes it so emacs can print pretty characters in the modeline and elsewhere
 ENV LANG en_US.UTF-8
 
@@ -18,9 +16,11 @@ ENV LANG en_US.UTF-8
 ENV SHELL /bin/bash
 
 # Setup environment
+# WARNING: getting develop to work around issue in master, next time through
+# can probably get rid of this
 RUN sudo chown user:user /home/user/.spacemacs && \
     sudo chown user:user /home/user/.tmux.conf && \
-    git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
+    git clone --recursive -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # Make sure lein and cider are in sync
 RUN echo '{:user {:plugins [[cider/cider-nrepl "0.10.0-SNAPSHOT"] [refactor-nrepl "2.0.0-SNAPSHOT"]] :dependencies [[alembic "0.3.2"] [org.clojure/tools.nrepl "0.2.12"]]}}' >> /home/user/.lein/profiles.clj 

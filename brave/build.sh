@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t binduwavell/codenvy-clojure-brave:0.1 .
+docker build -t binduwavell/codenvy-clojure-brave:0.2 .

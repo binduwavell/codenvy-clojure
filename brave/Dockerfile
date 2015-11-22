@@ -1,4 +1,4 @@
-FROM binduwavell/codenvy-clojure-base:0.1
+FROM binduwavell/codenvy-clojure-base:0.2
 
 MAINTAINER Bindu Wavell <bindu@ziaconsulting.com>
 
